@@ -1,1 +1,6 @@
- 
+postgres
+chcp 1251
+\du
+\l
+psql.exe -U postgres -p 5432
+createdb -U postgres rws_db  
