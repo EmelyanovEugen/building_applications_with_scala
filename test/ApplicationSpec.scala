@@ -1,6 +1,7 @@
 import org.scalatestplus.play._
 import play.api.test._
 import play.api.test.Helpers._
+import org.scalatest.words.BeWord
 
 /**
  * Add your spec here.
@@ -24,19 +25,16 @@ class ApplicationSpec extends PlaySpec with OneAppPerTest {
 
       status(home) mustBe OK
       contentType(home) mustBe Some("text/html")
-      contentAsString(home) must include ("Your new application is ready.")
+      contentAsString(home) must include ("Welcome to Reactive Web Store")
     }
 
   }
 
-  "CountController" should {
-
-    "return an increasing count" in {
-      contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "0"
-      contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "1"
-      contentAsString(route(app, FakeRequest(GET, "/count")).get) mustBe "2"
+  "RndController" should {
+    "return a random number" in {
+      // Assuming ng-microservice is down otherwise will fail.
+      contentAsString(route(app, FakeRequest(GET, "/rnd/rxbat")).get) mustBe "2.3000000000000007"
     }
-
   }
 
 }
