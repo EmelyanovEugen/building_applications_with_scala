@@ -4,3 +4,7 @@ chcp 1251
 \l
 psql.exe -U postgres -p 5432
 createdb -U postgres rws_db  
+
+activator
+reload
+compile
